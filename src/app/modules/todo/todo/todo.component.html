@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="todolist not-done">
+        <h1>Todos</h1>
+        <input
+          type="text"
+          class="form-control add-todo"
+          [(ngModel)]="todo"
+          placeholder="Add todo"
+        
+        />
+        <button id="checkAll" class="btn btn-success" (click)="addTask()">Add Task</button>
+
+        <div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              (click)="color='blue'"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Blue
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault2"
+              (click)="color='green'"
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Green
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault2"
+              (click)="color='yellow'"
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Yellow
+            </label>
+          </div>
+        </div>
+
+        <hr />
+        <ul id="sortable" class="list-unstyled">
+          <li class="ui-state-default" [appHighlighter]="color" *ngFor="let list of todoList">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="" /> {{list}}</label
+              >
+            </div>
+          </li>
+        </ul>
+        <div class="todo-footer">
+          <strong><span class="count-todos"></span></strong> Items Left {{todoList.length}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="todolist">
+        <h1>Already Done</h1>
+        <ul id="done-items" class="list-unstyled">
+          <li>
+            Some item
+            <button class="remove-item btn btn-default btn-xs pull-right">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
